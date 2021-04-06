@@ -1,6 +1,5 @@
 package com.api.mercadolivre.entity;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,27 +10,25 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="categorias")
-public class Categoria{
-
+@Table(name="caracteristicas")
+public class Caracteristica {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	@Column(nullable=false,unique=true)
+	@Column(nullable = false)
 	private String nome;
-    @ManyToOne
-    @JoinColumn(name = "categoria_mom", referencedColumnName = "id")
-    private Categoria categoria_mom;
-    
-	public Categoria(String nome, Categoria categoria_mom) {
+	@Column(nullable = false)
+	private String descricao;
+	@ManyToOne
+	@JoinColumn(name="produto_id", referencedColumnName="id",nullable=false)
+	private Produto produto;
+	
+	public Caracteristica(String nome, String descricao,Produto produto) {
 		super();
 		this.nome = nome;
-		this.categoria_mom = categoria_mom;
+		this.descricao = descricao;
+		this.produto = produto;
 	}
+
 	
-    @Deprecated
-	public Categoria() {
-		
-	}
-    
 }
