@@ -55,4 +55,14 @@ public class Produto {
 		this.categoria = categoria;
 		this.usuario = usuario;
 	}
+	
+	public Produto() {
+		
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	
+	
 }
