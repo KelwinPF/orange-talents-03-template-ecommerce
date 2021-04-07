@@ -12,7 +12,7 @@ import com.api.mercadolivre.entity.Usuario;
 
 public class OpiniaoDTO {
 	
-	@Min(value=0)
+	@Min(value=1)
 	@Max(value=5)
 	@NotNull
 	private Integer nota;
@@ -22,7 +22,7 @@ public class OpiniaoDTO {
 	@NotBlank(message="insira um titulo")
 	private String titulo;
 	
-	public OpiniaoDTO(@Min(0) @Max(5) @NotNull Integer nota,
+	public OpiniaoDTO(@Min(1) @Max(5) @NotNull Integer nota,
 			@NotBlank(message = "insira uma descricao") @Size(max = 500) String descricao,
 			@NotBlank(message = "insira um titulo") String titulo) {
 		super();
