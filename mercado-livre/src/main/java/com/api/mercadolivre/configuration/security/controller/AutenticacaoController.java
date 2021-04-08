@@ -1,8 +1,5 @@
 package com.api.mercadolivre.configuration.security.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -14,10 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.mercadolivre.configuration.ErroDeFormularioDTO;
 import com.api.mercadolivre.configuration.security.dto.JwtAuthenticationDTO;
 import com.api.mercadolivre.configuration.security.dto.TokenDTO;
-import com.api.mercadolivre.configuration.security.service.AutenticacaoService;
 import com.api.mercadolivre.configuration.security.util.JwtTokenUtil;
 
 import org.springframework.security.core.Authentication;

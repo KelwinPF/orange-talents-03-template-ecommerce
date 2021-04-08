@@ -1,7 +1,6 @@
 package com.api.mercadolivre.entity;
 
 import java.time.LocalDateTime;
-import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,8 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import com.api.mercadolivre.util.RoleEnum;
 

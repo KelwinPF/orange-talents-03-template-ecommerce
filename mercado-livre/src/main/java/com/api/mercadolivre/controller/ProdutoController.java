@@ -9,7 +9,6 @@ import javax.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,19 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.api.mercadolivre.configuration.security.JwtUser;
 import com.api.mercadolivre.dto.ImagemDTO;
 import com.api.mercadolivre.dto.ProdutoDTO;
-import com.api.mercadolivre.entity.Caracteristica;
-import com.api.mercadolivre.entity.Imagem;
-import com.api.mercadolivre.entity.Opiniao;
-import com.api.mercadolivre.entity.Pergunta;
 import com.api.mercadolivre.entity.Produto;
 import com.api.mercadolivre.repository.CaracteristicaRepository;
 import com.api.mercadolivre.repository.CategoriaRepository;
 import com.api.mercadolivre.repository.ImagemRepository;
-import com.api.mercadolivre.repository.OpiniaoRepository;
-import com.api.mercadolivre.repository.PerguntaRepository;
 import com.api.mercadolivre.repository.ProdutoRepository;
 import com.api.mercadolivre.repository.UsuarioRepository;
-import com.api.mercadolivre.response.ProdutoResponse;
 import com.api.mercadolivre.util.FileUploader;
 
 @RestController
