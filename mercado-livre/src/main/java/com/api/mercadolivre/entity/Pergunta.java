@@ -50,4 +50,11 @@ public class Pergunta {
 		return usuario;
 	}
 	
+	public LocalDateTime getInstante() {
+		return instante;
+	}
+
+	public Pergunta() {
+		
+	}
 }
