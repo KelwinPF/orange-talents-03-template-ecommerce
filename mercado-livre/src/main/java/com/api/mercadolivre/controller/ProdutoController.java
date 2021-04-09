@@ -53,7 +53,6 @@ public class ProdutoController {
 	}
 	
 	@PostMapping
-	@Transactional
 	public ResponseEntity<?> cadastrar(@Valid @RequestBody ProdutoDTO dto
 			,@AuthenticationPrincipal JwtUser user){
 		

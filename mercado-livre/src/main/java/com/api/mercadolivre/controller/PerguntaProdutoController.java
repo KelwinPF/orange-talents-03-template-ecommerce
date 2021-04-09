@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.api.mercadolivre.configuration.security.JwtUser;
 import com.api.mercadolivre.dto.PerguntaDTO;
+import com.api.mercadolivre.entity.Pergunta;
 import com.api.mercadolivre.entity.Produto;
 import com.api.mercadolivre.repository.PerguntaRepository;
 import com.api.mercadolivre.repository.ProdutoRepository;
@@ -48,9 +49,17 @@ public class PerguntaProdutoController {
 		if(prod.isEmpty()){
 			return ResponseEntity.notFound().build();
 		}
+		Pergunta pergunta = perguntaRrepository.save(dto.converte(prod.get(), usuarioRepository.getOne(user.getId())));
 		
-		sender.send(perguntaRrepository.save(dto.converte(prod.get(), usuarioRepository.getOne(user.getId()))));
+		sendMail(pergunta);
+		
 		return ResponseEntity.ok().build();
+	}
+	
+	private Boolean sendMail(Pergunta pergunta) {
+		return sender.send("Caro Sr."+pergunta.getProduto().getUsuario().getLogin()+", "+
+				"o usuário "+pergunta.getUsuario().getLogin()+ " fez a seguinte pergunta ao seu " +
+				"produto " +pergunta.getProduto().getNome() + ": "+ pergunta.getTitulo());
 	}
 	
 	

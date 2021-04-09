@@ -73,9 +73,14 @@ public class Produto {
 	public String getDescricao() {
 		return descricao;
 	}
-
+ 
 	public Categoria getCategoria() {
 		return categoria;
+	}
+
+	public Integer SubtrairEstoque(Integer quantidade2) {
+		this.quantidade = this.quantidade-quantidade2;
+		return quantidade;
 	}
 	
 	
