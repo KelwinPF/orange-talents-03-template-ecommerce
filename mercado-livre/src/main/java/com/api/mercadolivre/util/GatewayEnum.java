@@ -6,19 +6,22 @@ import com.api.mercadolivre.entity.Compra;
 
 public enum GatewayEnum {
 
-    PAYPAL("PAYPAL","paypal.com?buyerId="),
-    PAGSEGURO("PAGSEGURO","pagseguro.com?returnId=");
+    PAYPAL("PAYPAL","paypal.com?buyerId=","/retorno-paypal/"),
+    PAGSEGURO("PAGSEGURO","pagseguro.com?returnId=","/retorno-pagseguro/");
 
     private final String value;
     private final String url;
+    private final String retorno_url;
     
-    GatewayEnum(String value,String url) {
+    GatewayEnum(String value,String url,String retorno_url) {
         this.value = value;
         this.url = url;
+        this.retorno_url = retorno_url;
     }
 
     public String retorno(Compra compra, UriComponentsBuilder builder) {
-    	String retorno = builder.path("/sucesso").buildAndExpand(compra.getId()).toString();
+    	String retorno = builder.path(retorno_url+compra.getId().toString())
+    			.buildAndExpand(compra.getId()).toString();
     	return url+compra.getId().toString()+"&redirectUrl="+retorno;
     }
     
