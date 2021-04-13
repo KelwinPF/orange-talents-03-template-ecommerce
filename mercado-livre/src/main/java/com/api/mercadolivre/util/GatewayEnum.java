@@ -6,8 +6,8 @@ import com.api.mercadolivre.entity.Compra;
 
 public enum GatewayEnum {
 
-    PAYPAL("PAYPAL","paypal.com?buyerId=","/retorno-paypal/"),
-    PAGSEGURO("PAGSEGURO","pagseguro.com?returnId=","/retorno-pagseguro/");
+    PAYPAL("PAYPAL","paypal.com?buyerId=","transacoes/retorno-paypal/"),
+    PAGSEGURO("PAGSEGURO","pagseguro.com?returnId=","transacoes/retorno-pagseguro/");
 
     private final String value;
     private final String url;

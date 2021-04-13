@@ -63,6 +63,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception{
     	http.authorizeRequests()
 		.antMatchers("/auth/**").permitAll()
+		.antMatchers(HttpMethod.POST,"/notasfiscais/**").permitAll()
+		.antMatchers(HttpMethod.POST,"/ranking/**").permitAll()
 		.antMatchers(HttpMethod.GET,"/produtos/**").permitAll()
 		.anyRequest().authenticated()
 		.and()
@@ -81,7 +83,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		web.ignoring().antMatchers("/**.html", "/v2/api-docs", "/webjars/**",
-				"/configuration/**",
+				"/configuration/**","/configuration/",
 				"/swagger-resources/**", "/h2-console/**", "/favicon.ico/**");
 	}
 }

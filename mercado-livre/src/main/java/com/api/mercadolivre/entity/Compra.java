@@ -15,7 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.api.mercadolivre.util.GatewayEnum;
-import com.api.mercadolivre.util.StatusEnum;
+import com.api.mercadolivre.repository.CompraRepository;
+import com.api.mercadolivre.util.CompraStatusEnum;
 
 @Entity
 @Table(name="compras")
@@ -38,7 +39,7 @@ public class Compra {
 	private BigDecimal valor_unitario;
 	@Enumerated(EnumType.STRING)
 	@Column(nullable=false)
-	private StatusEnum status = StatusEnum.INICIADA;
+	private CompraStatusEnum status = CompraStatusEnum.INICIADA;
 	
 	public Compra(GatewayEnum gateway, Produto produto, Integer quantidade, 
 			Usuario usuario, BigDecimal valor_unitario) {
@@ -66,7 +67,7 @@ public class Compra {
 		return valor_unitario;
 	}
 
-	public StatusEnum getStatus() {
+	public CompraStatusEnum getStatus() {
 		return status;
 	}
 
@@ -82,6 +83,15 @@ public class Compra {
 		this.gateway = gateway;
 	}
 	
+	@Deprecated
+	public Compra() {
+		
+	}
+
+	public Compra finalizacompra(CompraRepository repo) {
+		this.status = CompraStatusEnum.CONCLUIDA;
+		return repo.save(this);
+	}
 	
 	
 }
